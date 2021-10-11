@@ -7,15 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs" />
+      <Content Include=".dockerignore" />
+      <Content Include="Dockerfile" />
+      <Content Include=".gitignore" />
+      <Compile Include="Region.Domain.fs" />
+      <Compile Include="Species.Domain.fs" />
+      <Compile Include="Conservation.Domain.fs" />
+      <Compile Include="IUCNService.fs" />
+      <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include=".dockerignore" />
-      <Content Include="Dockerfile" />
-      <Compile Include="Species.Domain.fs" />
-      <Compile Include="Conservation.Domain.fs" />
-      <Compile Include="Region.Domain.fs" />
+      <PackageReference Include="FSharp.Data" Version="4.2.3" />
+      <PackageReference Include="FSharp.Json" Version="0.4.1" />
     </ItemGroup>
 
 </Project>

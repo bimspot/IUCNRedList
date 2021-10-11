@@ -1,4 +1,6 @@
-module IUCNRedList.Domain
+namespace IUCNRedList
+
+open IUCNRedList.Region
 
 type Undefined = exn
 
@@ -30,14 +32,14 @@ module Species =
   type MainCommonName = MainCommonName of string
 
   type Species =
-    { TaxonId: TaxonId
-      KingdomName: KingdomName
-      PhylumName: PhylumName
-      ClassName: ClassName
-      OrderName: OrderName
-      FamilyName: FamilyName
-      ScientificName: ScientificName
-      TaxonomicAuthority: TaxonomicAuthority
+    { TaxonId: TaxonId option
+      KingdomName: KingdomName option
+      PhylumName: PhylumName option
+      ClassName: ClassName option
+      OrderName: OrderName option
+      FamilyName: FamilyName option
+      ScientificName: ScientificName option
+      TaxonomicAuthority: TaxonomicAuthority option
       InfraRank: InfraRank option
       InfraName: InfraName option
       Population: Population option
@@ -46,24 +48,25 @@ module Species =
 
   type Count = Count of int
 
-  type Result = Result of Species list
-
-  type SpeciesListResponse = { Count: Count; Result: Result }
+  type SpeciesListResponse =
+    { Count: Count
+      RegionIdentifier: RegionIdentifier option
+      Result: Species list }
 
   type ConservationMeasures = ConservationMeasures of string
 
   type SpeciesWithConservationMeasures =
-    { TaxonId: TaxonId
-      KingdomName: KingdomName
-      PhylumName: PhylumName
-      ClassName: ClassName
-      OrderName: OrderName
-      FamilyName: FamilyName
-      ScientificName: ScientificName
-      TaxonomicAuthority: TaxonomicAuthority
+    { TaxonId: TaxonId option
+      KingdomName: KingdomName option
+      PhylumName: PhylumName option
+      ClassName: ClassName option
+      OrderName: OrderName option
+      FamilyName: FamilyName option
+      ScientificName: ScientificName option
+      TaxonomicAuthority: TaxonomicAuthority option
       InfraRank: InfraRank option
       InfraName: InfraName option
       Population: Population option
       Category: Category
       MainCommonName: MainCommonName option
-      ConservationMeasures: ConservationMeasures }
+      ConservationMeasures: ConservationMeasures option }

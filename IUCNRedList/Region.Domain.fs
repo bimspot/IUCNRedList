@@ -1,4 +1,4 @@
-module IUCNRedList.Region_Domain
+namespace IUCNRedList
 
 module Region =
   type RegionName = RegionName of string
@@ -11,6 +11,4 @@ module Region =
 
   type Count = Count of int
 
-  type Result = Result of Region list
-
-  type RegionListResponse = { Count: Count; Result: Result }
+  type RegionListResponse = { Count: Count; Results: Region list }

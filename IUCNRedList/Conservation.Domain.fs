@@ -1,6 +1,4 @@
-module IUCNRedList.Conservation_Domain
-
-open IUCNRedList.Domain.Species
+namespace IUCNRedList
 
 module Conservation =
 
