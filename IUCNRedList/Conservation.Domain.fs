@@ -2,16 +2,15 @@ namespace IUCNRedList
 
 module Conservation =
 
-  type Code = Code of string
+  type ConservationMeasure = { Code: string; Title: string }
 
-  type Title = Title of string
+  type ConservationMeasureListResponse =
+    { Id: string
+      Result: ConservationMeasure list }
 
-  type ConservationMeasure = { Code: Code; Title: Title }
+  type ConservationMeasureForSpecies = { Id: string; Measures: string }
 
-  type Id = Id of string
-
-  type Result = Result of ConservationMeasure list
-
-  type ConservationMeasureListResponse = { Id: Id; Result: Result }
-  
-  type ConservationMeasureForSpecies = {Id: Id; Measures: string}
+  let concatMeasureTitle conservationMeasureListResponse =
+    conservationMeasureListResponse
+    |> List.map (fun m -> m.Title)
+    |> String.concat "; "

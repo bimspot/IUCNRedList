@@ -5,7 +5,7 @@ open IUCNRedList.Region
 type Undefined = exn
 
 module Species =
-   (*
+  (*
   There is a typo in the API response, this is supposed to be snake
   but it isn't.
   *)
@@ -37,12 +37,12 @@ module Species =
 
   type Species =
     { Taxonid: Taxonid
-      KingdomName: KingdomName option
-      PhylumName: PhylumName option
-      ClassName: ClassName option
-      OrderName: OrderName option
-      FamilyName: FamilyName option
-      ScientificName: ScientificName option
+      KingdomName: KingdomName
+      PhylumName: PhylumName
+      ClassName: ClassName
+      OrderName: OrderName
+      FamilyName: FamilyName
+      ScientificName: ScientificName
       TaxonomicAuthority: TaxonomicAuthority option
       InfraRank: InfraRank option
       InfraName: InfraName option
@@ -61,12 +61,12 @@ module Species =
 
   type SpeciesWithConservationMeasures =
     { Taxonid: Taxonid
-      KingdomName: KingdomName option
-      PhylumName: PhylumName option
-      ClassName: ClassName option
-      OrderName: OrderName option
-      FamilyName: FamilyName option
-      ScientificName: ScientificName option
+      KingdomName: KingdomName
+      PhylumName: PhylumName
+      ClassName: ClassName
+      OrderName: OrderName
+      FamilyName: FamilyName
+      ScientificName: ScientificName
       TaxonomicAuthority: TaxonomicAuthority option
       InfraRank: InfraRank option
       InfraName: InfraName option
@@ -74,3 +74,11 @@ module Species =
       Category: Category
       MainCommonName: MainCommonName option
       ConservationMeasures: ConservationMeasures option }
+
+  let filterCriticallyEndangeredSpecies speciesListResponse =
+    speciesListResponse.Result
+    |> List.filter (fun s -> s.Category = Category "CR")
+
+  let filterMammals speciesListResponse =
+    speciesListResponse.Result
+    |> List.filter (fun s -> s.ClassName = ClassName "MAMMALIA")
