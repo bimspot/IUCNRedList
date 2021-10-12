@@ -5,7 +5,11 @@ open IUCNRedList.Region
 type Undefined = exn
 
 module Species =
-  type TaxonId = TaxonId of int
+   (*
+  There is a typo in the API response, this is supposed to be snake
+  but it isn't.
+  *)
+  type Taxonid = Taxonid of int
 
   type KingdomName = KingdomName of string
 
@@ -32,7 +36,7 @@ module Species =
   type MainCommonName = MainCommonName of string
 
   type Species =
-    { TaxonId: TaxonId option
+    { Taxonid: Taxonid
       KingdomName: KingdomName option
       PhylumName: PhylumName option
       ClassName: ClassName option
@@ -56,7 +60,7 @@ module Species =
   type ConservationMeasures = ConservationMeasures of string
 
   type SpeciesWithConservationMeasures =
-    { TaxonId: TaxonId option
+    { Taxonid: Taxonid
       KingdomName: KingdomName option
       PhylumName: PhylumName option
       ClassName: ClassName option

@@ -2,6 +2,7 @@ namespace IUCNRedList
 
 open FSharp.Data
 open FSharp.Json
+open IUCNRedList.Conservation
 open IUCNRedList.Region
 open IUCNRedList.Species
 
@@ -29,14 +30,22 @@ module IUCNService =
 
   let private authorizedRequest<'T> = request<'T> apiKey
 
-  let regionList =
+  let fetchRegionList =
     authorizedRequest<RegionListResponse>
       "http://apiv3.iucnredlist.org/api/v3/region/list"
 
-  let species region =
+  let fetchAllSpeciesInRegion region =
     let (RegionIdentifier identifier) = region.Identifier
 
     let url =
       $"http://apiv3.iucnredlist.org/api/v3/species/region/{identifier}/page/0"
 
     authorizedRequest<SpeciesListResponse> url
+
+  let fetchConservationMeasuresForSpecies speciesId =
+    let (Taxonid identifier) = speciesId
+
+    let url =
+      $"http://apiv3.iucnredlist.org/api/v3/measures/species/id/{identifier}"
+
+    authorizedRequest<ConservationMeasureListResponse> url
