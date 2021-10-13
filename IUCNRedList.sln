@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "IUCNRedList", "IUCNRedList\IUCNRedList.fsproj", "{53CC9755-B412-4A31-B2CE-2EC9077C902B}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "IUCNRedList.Tests", "IUCNRedList.Tests\IUCNRedList.Tests.fsproj", "{CC31FD0A-031C-4B70-A87B-CB159EB3C099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{53CC9755-B412-4A31-B2CE-2EC9077C902B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53CC9755-B412-4A31-B2CE-2EC9077C902B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53CC9755-B412-4A31-B2CE-2EC9077C902B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC31FD0A-031C-4B70-A87B-CB159EB3C099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC31FD0A-031C-4B70-A87B-CB159EB3C099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC31FD0A-031C-4B70-A87B-CB159EB3C099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC31FD0A-031C-4B70-A87B-CB159EB3C099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
